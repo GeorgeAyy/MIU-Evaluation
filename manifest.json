@@ -5,7 +5,7 @@
   "permissions": ["activeTab", "scripting", "tabs", "storage"],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "Misr_International_University_logo.png"
+    "default_icon": "Logo.png"
   },
   "content_scripts": [
     {

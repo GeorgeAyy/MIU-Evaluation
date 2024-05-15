@@ -27,11 +27,11 @@ function evaluateAndMark() {
       ".btn.green, .btn-primary"
     );
     evaluateButtons.forEach((button) => {
-      //if (!isInHiddenTd(button)) {
-      // Check if the button is not inside a hidden <td>
-      button.click(); // Click the evaluate button
-      markRadioButtons(); // Mark the radio buttons
-      //}
+      if (!isInHiddenTd(button)) {
+        // Check if the button is not inside a hidden <td>
+        button.click(); // Click the evaluate button
+        markRadioButtons(); // Mark the radio buttons
+      }
     });
     setTimeout(evaluateAndMark, 1500);
   }
