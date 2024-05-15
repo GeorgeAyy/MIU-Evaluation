@@ -1,13 +1,17 @@
 console.log("Content script loaded");
-
 let running = false; // Flag to indicate whether the extension is running
 let sliderValue = 3;
+let evaluationTimeout;
 // Listen for messages from the popup or other parts of the extension
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "START_EVALUATION") {
     console.log("Received START_EVALUATION message");
     running = true; // Start the extension
     evaluateAndMark(); // Start evaluating and marking
+    evaluationTimeout = setTimeout(() => {
+      console.log("Evaluation stopped after 3 minutes");
+      running = false; // Stop the extension after 1 minute
+    }, 180000);
   } else if (message.type === "STOP_EVALUATION") {
     console.log("Received STOP_EVALUATION message");
     running = false; // Stop the extension
@@ -23,6 +27,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 function evaluateAndMark() {
   if (running) {
     console.log("Evaluating and marking radio buttons");
+    // Your existing code for evaluating and marking radio buttons
     const evaluateButtons = document.querySelectorAll(
       ".btn.green, .btn-primary"
     );
@@ -33,10 +38,12 @@ function evaluateAndMark() {
         markRadioButtons(); // Mark the radio buttons
       }
     });
-    setTimeout(evaluateAndMark, 1500);
+    // Call evaluateAndMark again only if running is still true
+    if (running) {
+      setTimeout(evaluateAndMark, 1500);
+    }
   }
 }
-
 // Function to check if an element is inside a hidden <td>
 function isInHiddenTd(element) {
   let parentElement = element.parentElement;
@@ -65,5 +72,3 @@ function markRadioButtons() {
     }
   });
 }
-
-//<div ng-repeat="item in Questions" class="ng-scope">
