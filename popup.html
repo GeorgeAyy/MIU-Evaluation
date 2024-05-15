@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto Evaluation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f4f4f9;
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        margin-bottom: 10px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #stop {
+        background-color: #f44336; /* Red color for the Stop button */
+      }
+
+      #stop:hover {
+        background-color: #d32f2f; /* Darker red color on hover */
+      }
+
+      .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 20px;
+        border-radius: 10px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+
+      .slider:hover {
+        opacity: 1;
+      }
+
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+      }
+
+      .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+      }
+
+      .rating {
+        font-size: 16px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .attribution {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Auto Evaluation</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" />
+    <div class="rating">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+    </div>
+    <div class="attribution">Created by GeorgeAyy</div>
+    <script src="popup.js"></script>
+  </body>
+</html>

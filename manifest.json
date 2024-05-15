@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Evaluation",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting", "tabs", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "Misr_International_University_logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
